@@ -29,6 +29,7 @@
             padding: 10px 20px;
             margin: 0 5px;
             font-size: 18px; /* збільшений розмір шрифту */
+            display: block; /* змінено на блочний елемент */
         }
         nav a:hover {
             background-color: #555;
@@ -55,11 +56,13 @@
             border: 2px solid red; /* червона обводка */
             background-color: transparent; /* прозорий фон */
             color: red; /* червоний колір тексту */
-            padding: 20px 40px; /* збільшені відступи */
-            font-size: 24px; /* збільшений розмір шрифту */
+            padding: 15px 30px; /* збільшені відступи */
+            font-size: 18px; /* збільшений розмір шрифту */
             border-radius: 10px; /* згладжені кути */
             cursor: pointer; /* змінений курсор при наведенні */
             transition: all 0.3s ease; /* плавна анімація */
+            display: block; /* змінено на блочний елемент */
+            margin: 20px auto; /* центрування по горизонталі */
         }
         button:hover {
             background-color: red; /* зміна фону при наведенні */
@@ -67,28 +70,14 @@
         }
         /* Стилі для блоку з картинкою і текстом міського голови */
         #mayor-info {
-            position: absolute;
-            top: 500px;
-            left: 1700px;
-            display: flex;
-            align-items: center;
-            color: #000000;
+            text-align: center;
+            margin-top: 20px;
         }
         #mayor-info img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             margin-right: 10px;
-        }
-        /* Стилі для кнопки щоб перемістити нижче блоку з новинами */
-        #info {
-            position: relative;
-        }
-        button {
-            position: absolute;
-            bottom: -50px; /* визначте потрібне значення в залежності від вашого дизайну */
-            left: 50%; /* центрування по горизонталі */
-            transform: translateX(-50%); /* центрування по горизонталі */
         }
     </style>
 </head>
@@ -113,7 +102,7 @@
 </nav>
 
 <section id="info">
-    <img src="news1.png" alt="Фото новини">
+    <h1>Новини цього місяця:</h1>
 </section>
 
 <button onclick="window.location.href='infotrivoga.html'">Що робити підчас тривоги?</button>
