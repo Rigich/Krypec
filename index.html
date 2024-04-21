@@ -80,6 +80,16 @@
             border-radius: 50%;
             margin-right: 10px;
         }
+        /* Стилі для кнопки щоб перемістити нижче блоку з новинами */
+        #info {
+            position: relative;
+        }
+        button {
+            position: absolute;
+            bottom: -50px; /* визначте потрібне значення в залежності від вашого дизайну */
+            left: 50%; /* центрування по горизонталі */
+            transform: translateX(-50%); /* центрування по горизонталі */
+        }
     </style>
 </head>
 <body>
@@ -104,8 +114,9 @@
 
 <section id="info">
     <img src="news1.png" alt="Фото новини">
-    <button onclick="window.location.href='infotrivoga.html'">Що робити підчас тривоги?</button>
 </section>
+
+<button onclick="window.location.href='infotrivoga.html'">Що робити підчас тривоги?</button>
 
 <footer>
     <p>© 2024 Місто Крупець. Усі права захищені.</p>
