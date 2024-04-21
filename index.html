@@ -10,39 +10,42 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
-            position: relative; /* Додано для позиціонування */
+            color: #333;
         }
         header {
-            background-color: #333;
+            background-color: #ff5733;
             color: #fff;
-            padding: 10px 20px;
+            padding: 20px;
             text-align: center;
         }
         nav {
-            background-color: #444;
+            background-color: #ff8c66;
             padding: 10px;
             text-align: center;
+            display: flex; /* Розміщення по горизонталі */
+            justify-content: center; /* Вирівнювання елементів по центру */
         }
         nav a {
             color: #fff;
             text-decoration: none;
             padding: 10px 20px;
-            margin: 0 5px;
-            font-size: 18px; /* збільшений розмір шрифту */
-            display: block; /* змінено на блочний елемент */
+            margin: 5px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover {
-            background-color: #555;
+            background-color: #ffaa7f;
         }
         section {
             padding: 20px;
             text-align: center;
         }
         footer {
-            background-color: #333;
+            background-color: #ff5733;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -51,24 +54,24 @@
             font-style: italic;
             color: #007bff;
         }
-        /* Стилі для кнопки */
         button {
-            border: 2px solid red; /* червона обводка */
-            background-color: transparent; /* прозорий фон */
-            color: red; /* червоний колір тексту */
-            padding: 15px 30px; /* збільшені відступи */
-            font-size: 18px; /* збільшений розмір шрифту */
-            border-radius: 10px; /* згладжені кути */
-            cursor: pointer; /* змінений курсор при наведенні */
-            transition: all 0.3s ease; /* плавна анімація */
-            display: block; /* змінено на блочний елемент */
-            margin: 20px auto; /* центрування по горизонталі */
+            border: 2px solid #007bff;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            display: block;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 300px;
         }
         button:hover {
-            background-color: red; /* зміна фону при наведенні */
-            color: white; /* зміна кольору тексту при наведенні */
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
-        /* Стилі для блоку з картинкою і текстом міського голови */
         #mayor-info {
             text-align: center;
             margin-top: 20px;
@@ -79,6 +82,20 @@
             border-radius: 50%;
             margin-right: 10px;
         }
+
+        @media only screen and (max-width: 600px) {
+            header, nav, footer {
+                padding: 15px;
+            }
+            nav a {
+                padding: 8px 16px;
+                font-size: 16px;
+            }
+            button {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -87,7 +104,6 @@
     <h1>Ласкаво просимо до міста Крупець</h1>
 </header>
 
-<!-- Додано блок з картинкою і текстом міського голови -->
 <div id="mayor-info">
     <img src="pilya.png" alt="Міський голова Крупця Дем'ян Пилипака">
     <p>Міський голова Крупця<br>Дем'ян Пилипака</p>
@@ -101,7 +117,7 @@
     <a href="contact.html">Контакти</a>
 </nav>
 
-<section id="info">
+<section>
     <h1>Новини цього місяця:</h1>
 </section>
 
