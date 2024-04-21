@@ -6,6 +6,100 @@
     <title>Список відео</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    nav {
+        background-color: #999;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* Додав варіант переносу кнопок на новий рядок, якщо не вистачає місця */
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        margin: 5px;
+        font-size: 18px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover {
+        background-color: #555;
+    }
+    section {
+        padding: 20px;
+        text-align: center;
+    }
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .mayor {
+        font-style: italic;
+        color: #007bff;
+    }
+    button {
+        border: 2px solid #007bff;
+        background-color: #007bff;
+        color: #fff;
+        padding: 15px 40px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        display: block;
+        margin: 20px auto 10px; /* Знизив вертикальний відступ */
+        width: 80%;
+        max-width: 300px;
+    }
+    button:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+    #mayor-info {
+        text-align: center;
+        margin-top: 20px;
+    }
+    #mayor-info img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        header, nav, footer {
+            padding: 15px;
+        }
+        nav a {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+        }
+    }
+</style>
 <body>
     <header>
         <h1>Ласкаво просимо до відео огляд міста "Крупець"</h1>
