@@ -9,40 +9,40 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f0f0f0; /* Змінив колір фону на сірий */
             color: #333;
         }
         header {
-            background-color: #ff5733;
+            background-color: #333; /* Змінив колір фону заголовка */
             color: #fff;
             padding: 20px;
             text-align: center;
         }
         nav {
-            background-color: #ff8c66;
+            background-color: #999; /* Змінив колір фону навігації */
             padding: 10px;
             text-align: center;
-            display: flex; /* Розміщення по горизонталі */
-            justify-content: center; /* Вирівнювання елементів по центру */
+            display: flex;
+            justify-content: center;
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             margin: 5px;
-            font-size: 18px;
+            font-size: 14px;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover {
-            background-color: #ffaa7f;
+            background-color: #555; /* Змінив колір фону кнопок навігації при наведенні */
         }
         section {
             padding: 20px;
             text-align: center;
         }
         footer {
-            background-color: #ff5733;
+            background-color: #333; /* Змінив колір фону футера */
             color: #fff;
             text-align: center;
             padding: 20px 0;
@@ -88,8 +88,8 @@
                 padding: 15px;
             }
             nav a {
-                padding: 8px 16px;
-                font-size: 16px;
+                padding: 6px 12px;
+                font-size: 12px;
             }
             button {
                 padding: 12px 30px;
@@ -104,11 +104,6 @@
     <h1>Ласкаво просимо до міста Крупець</h1>
 </header>
 
-<div id="mayor-info">
-    <img src="pilya.png" alt="Міський голова Крупця Дем'ян Пилипака">
-    <p>Міський голова Крупця<br>Дем'ян Пилипака</p>
-</div>
-
 <nav>
     <a href="videomista.html">Відео огляд міста</a>
     <a href="radio.html">Радіо</a>
@@ -122,6 +117,11 @@
 </section>
 
 <button onclick="window.location.href='infotrivoga.html'">Що робити підчас тривоги?</button>
+
+<div id="mayor-info">
+    <img src="pilya.png" alt="Міський голова Крупця Дем'ян Пилипака">
+    <p>Міський голова Крупця<br>Дем'ян Пилипака</p>
+</div>
 
 <footer>
     <p>© 2024 Місто Крупець. Усі права захищені.</p>
