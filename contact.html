@@ -159,14 +159,14 @@
                 border-color: #0056b3;
             }
             #mayor-info {
-                text-align: center;
-                margin-top: 20px;
+                text-align: right;
+                margin-top: 50px;
             }
             #mayor-info img {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                margin-right: 10px;
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                margin-right: 50px;
             }
     
             @media only screen and (max-width: 600px) {
@@ -182,6 +182,25 @@
                     font-size: 16px;
                 }
             }
+
+            #mayor-info {
+    text-align: left;
+    overflow: hidden; /* Додається для очистки плаваючих елементів */
+}
+
+.contact-card {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card img {
+    float: right;
+    margin-left: 30px; /* Зменшено значення відступу для більшої відстані між текстом і фото */
+    margin-top: -50px; /* Від'ємне значення зміщує фото вище */
+    border-radius: 5px;
+}
         </style>
 </head>
 <body>
@@ -199,13 +218,49 @@
     </nav>
 </div>
 <div class="container">
-    <h1>Контактна інформація</h1>
+    <div id="mayor-info">
+        <h1>Контактна інформація</h1>
+        <div class="contact-card">
+            <h2>Мер</h2>
+            <p>Ім'я: Пилипака Дем'ян</p>
+            <img src="pilya.png" alt="">
+            <p>Email: pilipakademyan@gmail.com</p>
+            <p>Телефон: +38(068) 96 1488</p>
+            <p>Посада: Мер (куровод)</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="mayor-info">
     <div class="contact-card">
-        <h2>Мер</h2>
-        <p>Ім'я: Пилипака Дем'ян</p>
-        <p>Email: pilipakademyan@gmail.com</p>
-        <p>Телефон: +38(068) 96 1488</p>
-        <p>Посада: Мер (куровод)</p>
+        <h2>Премєр міністер закордоних справ</h2>
+        <p>Ім'я: Віталій Малачевский</p>
+        <img src="mal.png" alt="">
+        <p>Email: ухилянт@gmail.com</p>
+        <p>Телефон: +38(228) 666 1488</p>
+        <p>Посада: Премєр міністер закордоних справ(ухилянт)</p>
+    </div>
+</div>
+<div class="container">
+    <div id="mayor-info">
+    <div class="contact-card">
+        <h2>Премєр міністер оборони</h2>
+        <p>Ім'я: Фадєєв Максим</p>
+        <img src="fadeev.png" alt="">
+        <p>Email: fadeevpidoras@gmail.com</p>
+        <p>Телефон: в душе не єбу</p>
+        <p>Посада: Премєр міністер оборони</p>
+    </div>
+</div>
+<div class="container">
+    <div id="mayor-info">
+    <div class="contact-card">
+        <h2>Премєр міністер по спорту</h2>
+        <p>Ім'я: Юрій Казміжевскій</p>
+        <img src="yuriy.png" alt="">
+        <p>Email: ZaPelmeni@gmail.com</p>
+        <p>Телефон: +38(За пелмені!)</p>
+        <p>Посада: Премєр міністер по спорту</p>
     </div>
 </div>
 <footer>
