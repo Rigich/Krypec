@@ -84,18 +84,51 @@
             margin-right: 10px;
         }
 
-        @media only screen and (max-width: 600px) {
-            header, nav, footer {
-                padding: 15px;
-            }
-            nav a {
-                padding: 6px 12px;
-                font-size: 14px;
-            }
-            button {
-                padding: 12px 30px;
-                font-size: 16px;
-            }
+        /* Стилі для модального вікна */
+        .modal {
+            display: none; /* Початково ховаємо модальне вікно */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5); /* Півпрозорий чорний фон */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Стилі для рамки статті */
+        .article-frame {
+            border: 2px solid #007bff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -115,6 +148,13 @@
 
 <section>
     <h1>Новини цього місяця:</h1>
+    <!-- Додали рамку для статті -->
+    <div class="article-frame">
+        <img src="dorogi.jpg" alt="Дороги в місті Крупець">
+        <p>Мер міста Крупець захотів зробити дороги на вїзд в місто</p>
+        <!-- Додайте кнопку для відкриття модального вікна -->
+        <button id="openModal">НАЖМІТЬ ЩОБ ПРОЧИТАТИ</button>
+    </div>
 </section>
 
 <button onclick="window.location.href='infotrivoga.html'">Що робити підчас тривоги?</button>
@@ -128,6 +168,40 @@
     <p>© 2024 Місто Крупець. Усі права захищені.</p>
     <p>Мер міста: <span class="mayor">Пилипака</span></p>
 </footer>
+
+<!-- Модальне вікно -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img src="dorogi.jpg" alt="Дороги які робить Пилипака">
+        <p>Мер міста Крупець, Дем'ян Пилипака, оголосив про великий план з реконструкції доріг, що ведуть до міста. Цей амбіційний проект передбачає покращення і розширення дорожньої інфраструктури, щоб забезпечити безпечний та зручний в'їзд для мешканців та гостей міста.
+            Будівництво нових доріг стане важливим кроком у розвитку міста, сприяючи економічному зростанню та покращенню якості життя мешканців. Планується також створення нових зелених зон та пішохідних доріжок поруч із дорогами, щоб зробити місто більш привабливим для пішоходів та велосипедистів.      
+            Запрошуємо всіх мешканців та гостей міста долучитися до цього захоплюючого проекту та спільно працювати над створенням кращого майбутнього для нашого прекрасного міста Крупець!</p>
+    </div>
+</div>
+
+<script>
+    // Отримання елементів модального вікна та кнопки закриття
+    var modal = document.getElementById("myModal");
+    var closeBtn = document.getElementsByClassName("close")[0];
+
+    // Відкриття модального вікна при натисканні на кнопку
+    document.getElementById("openModal").onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // Закриття модального вікна при натисканні на кнопку закриття
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Закриття модального вікна при натисканні на півпрозорий чорний фон
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
