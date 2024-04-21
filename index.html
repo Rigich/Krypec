@@ -9,40 +9,41 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Змінив колір фону на сірий */
+            background-color: #f0f0f0;
             color: #333;
         }
         header {
-            background-color: #333; /* Змінив колір фону заголовка */
+            background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
         nav {
-            background-color: #999; /* Змінив колір фону навігації */
+            background-color: #999;
             padding: 10px;
             text-align: center;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap; /* Додав варіант переносу кнопок на новий рядок, якщо не вистачає місця */
         }
         nav a {
             color: #fff;
             text-decoration: none;
             padding: 8px 16px;
             margin: 5px;
-            font-size: 18px; /* Змінив розмір тексту кнопок навігації */
+            font-size: 18px;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover {
-            background-color: #555; /* Змінив колір фону кнопок навігації при наведенні */
+            background-color: #555;
         }
         section {
             padding: 20px;
             text-align: center;
         }
         footer {
-            background-color: #333; /* Змінив колір фону футера */
+            background-color: #333;
             color: #fff;
             text-align: center;
             padding: 20px 0;
@@ -64,7 +65,7 @@
             cursor: pointer;
             transition: background-color 0.3s, border-color 0.3s, color 0.3s;
             display: block;
-            margin: 20px auto;
+            margin: 20px auto 10px; /* Знизив вертикальний відступ */
             width: 80%;
             max-width: 300px;
         }
@@ -106,10 +107,10 @@
 
 <nav>
     <a href="videomista.html">Відео огляд міста</a>
-    <a href="radio.html">РАДІО</a> <!-- Змінив текст на великі літери -->
-    <a href="https://rigich.github.io/KrypecCafe/index.html">НАШЕ КАФЕ</a> <!-- Змінив текст на великі літери -->
-    <a href="ferms.html">НАШІ ФЕРМИ КУР</a> <!-- Змінив текст на великі літери -->
-    <a href="contact.html">КОНТАКТИ</a> <!-- Змінив текст на великі літери -->
+    <a href="radio.html">Радіо</a>
+    <a href="https://rigich.github.io/KrypecCafe/index.html">Наше кафе</a>
+    <a href="ferms.html">Наші ферми</a>
+    <a href="contact.html">Контакти</a>
 </nav>
 
 <section>
