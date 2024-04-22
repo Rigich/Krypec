@@ -148,6 +148,12 @@
 
 <section>
     <h1>Новини цього місяця:</h1>
+    <div class="article-frame">
+        <img src="kyri.jpg" alt="Дороги в місті Крупець">
+        <p>Мер міста Крупець зробив свою футбольну команду</p>
+        <!-- Додайте кнопку для відкриття модального вікна -->
+        <button id="openModalOkno">НАЖМІТЬ ЩОБ ПРОЧИТАТИ</button>
+    </div>
     <!-- Додали рамку для статті -->
     <div class="article-frame">
         <img src="dorogi.jpg" alt="Дороги в місті Крупець">
@@ -164,14 +170,20 @@
     <p>Міський голова Крупця<br>Дем'ян Пилипака</p>
 </div>
 
-<footer>
-    <p>З любовью до <span class="mayor">Пилипаки</span></p>
-</footer>
 
 <!-- Модальне вікно -->
+<div id="myModalOkno" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeBtnOkno">&times;</span>
+        <img src="kyri.jpg" alt="Дороги які робить Пилипака">
+        <p>
+            Мер міста Крупець, Дем'ян Пилипака, взяв ініціативу до створення власної футбольної команди під назвою "Кури Крупця". Цей крок відображає його пристрасть до спорту та бажання залучити мешканців до активного та здорового способу життя.</p>
+    </div>
+</div>
+
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" id="closeBtn">&times;</span>
         <img src="dorogi.jpg" alt="Дороги які робить Пилипака">
         <p>Мер міста Крупець, Дем'ян Пилипака, оголосив про великий план з реконструкції доріг, що ведуть до міста. Цей амбіційний проект передбачає покращення і розширення дорожньої інфраструктури, щоб забезпечити безпечний та зручний в'їзд для мешканців та гостей міста.
             Будівництво нових доріг стане важливим кроком у розвитку міста, сприяючи економічному зростанню та покращенню якості життя мешканців. Планується також створення нових зелених зон та пішохідних доріжок поруч із дорогами, щоб зробити місто більш привабливим для пішоходів та велосипедистів.      
@@ -180,23 +192,39 @@
 </div>
 
 <script>
-    // Отримання елементів модального вікна та кнопки закриття
+    // Отримання елементів модальних вікон та кнопок закриття
     var modal = document.getElementById("myModal");
-    var closeBtn = document.getElementsByClassName("close")[0];
+    var modalOkno = document.getElementById("myModalOkno");
+    var closeBtn = document.getElementById("closeBtn");
+    var closeBtnOkno = document.getElementById("closeBtnOkno");
+    var openModalBtn = document.getElementById("openModal");
+    var openModalOknoBtn = document.getElementById("openModalOkno");
 
-    // Відкриття модального вікна при натисканні на кнопку
-    document.getElementById("openModal").onclick = function() {
+    // Відкриття модального вікна при натисканні на кнопку "openModalOkno"
+    openModalOknoBtn.onclick = function() {
+        modalOkno.style.display = "block";
+    }
+
+    // Закриття модального вікна при натисканні на кнопку закриття "closeBtnOkno"
+    closeBtnOkno.onclick = function() {
+        modalOkno.style.display = "none";
+    }
+
+    // Відкриття модального вікна при натисканні на кнопку "openModal"
+    openModalBtn.onclick = function() {
         modal.style.display = "block";
     }
 
-    // Закриття модального вікна при натисканні на кнопку закриття
+    // Закриття модального вікна при натисканні на кнопку закриття "closeBtn"
     closeBtn.onclick = function() {
         modal.style.display = "none";
     }
 
     // Закриття модального вікна при натисканні на півпрозорий чорний фон
     window.onclick = function(event) {
-        if (event.target == modal) {
+        if (event.target == modalOkno) {
+            modalOkno.style.display = "none";
+        } else if (event.target == modal) {
             modal.style.display = "none";
         }
     }
