@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список вакансій</title>
+    <style>
+        /* Стилі CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+        .job {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрувати вміст по горизонталі */
+            text-align: center; /* Центрувати текст по центру */
+        }
+        .job h2 {
+            margin-top: 0;
+        }
+        .job img {
+            margin-bottom: 10px;
+            width: 100px; /* Задати однакову ширину для всіх зображень */
+            height: 100px; /* Задати однакову висоту для всіх зображень */
+            object-fit: cover; /* Зберігати пропорції та обрізати зображення */
+            border-radius: 50%; /* Зробити зображення круглими */
+        }
+        .job div {
+            width: 100%; /* Задати повну ширину для текстового блоку */
+        }
+        .job p {
+            margin: 5px 0;
+        }
+        button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        button {
+            border: 2px solid #007bff;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            display: block;
+            margin: 20px auto 10px; /* Знизив вертикальний відступ */
+            width: 80%;
+            max-width: 300px;
+        }
+        /* Модальне вікно */
+        .modal {
+            display: none; /* Початково приховуємо */
+            position: fixed; /* Фіксоване положення */
+            z-index: 1; /* Піднімаємо поверх іншого вмісту */
+            left: 0;
+            top: 0;
+            width: 100%; /* Забираємо всю ширину */
+            height: 100%; /* Забираємо всю висоту */
+            overflow: auto; /* Дозволяємо прокручування сторінки, якщо модальне вікно велике */
+            background-color: rgba(0,0,0,0.4); /* Півпрозорий чорний колір */
+            padding-top: 60px; /* Відступ для заголовку модального вікна */
+        }
+        .modal-content {
+            background-color: #fefefe; /* Білий фон */
+            margin: 5% auto; /* Центруємо по вертикалі та горизонталі */
+            border: 1px solid #888;
+            width: 80%; /* Ширина модального вікна */
+            max-width: 400px;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Стилі кнопки "Контакти" */
+        .contact-button {
+            background-color: #4CAF50; /* Зелений колір */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Робота в Крупці</h1>
+    </header>
+    <div class="container">
+        <!-- Список вакансій -->
+        <div class="job">
+            <img src="куровод.jpg" alt="Куровод">
+            <div>
+                <h2>Куровод</h2>
+                <p><strong>Опис:</strong> Куровод - це фахівець, який відповідає за догляд та годування кур. Він забезпечує відповідні умови у приміщенні для кур, дбає про їх здоров'я та комфорт.</p>
+                <p><strong>Вимоги:</strong> досвід роботи з тваринами, вміння працювати в команді, відповідальність.</p>
+                <p><strong>Місце роботи:</strong> Крупець</p>
+                <p><strong>Зарплата:</strong> 3 яйця в день</p>
+                <button class="apply-button">Влаштуватись на роботу</button>
+            </div>
+        </div>
+        <div class="job">
+            <img src="kyri.png" alt="Кухар">
+            <div>
+                <h2>Кухар їжі для кур</h2>
+                <p><strong>Опис:</strong> Кухар їжі для кур - це спеціаліст, який відповідає за приготування та подачу їжі для кур. Він повинен забезпечити раціон, який задовольняє потреби птахів у необхідних поживних речовинах та вітамінах.</p>
+                <p><strong>Вимоги:</strong> досвід роботи на кухні, знання особливостей харчування кур, уважність до деталей.</p>
+                <p><strong>Місце роботи:</strong> Крупець</p>
+                <p><strong>Зарплата:</strong> 1 кг пшена для кур в день</p>
+                <button class="apply-button">Влаштуватись на роботу</button>
+            </div>
+        </div>
+        
+        <!-- Модальне вікно -->
+        <div id="myModal" class="modal">
+            <!-- Вміст модального вікна -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Зателефонуйте Меру Крупця! Номер можете дізнатись в контактах на сайті.</p>
+                <a href="contact.html" class="contact-button">Контакти</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Отримуємо посилання на модальне вікно
+        var modal = document.getElementById("myModal");
+
+        // Отримуємо посилання на кнопку "Влаштуватись на роботу"
+        var btns = document.querySelectorAll(".apply-button");
+
+        // Отримуємо посилання на <span> елемент, який закриває модальне вікно
+        var span = document.querySelector(".close");
+
+        // При натисканні на кнопку "Влаштуватись на роботу", відкриваємо модальне вікно
+        btns.forEach(function(btn) {
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+        });
+
+        // При натисканні на <span> (x), закриваємо модальне вікно
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // При натисканні поза модальним вікном, закриваємо його
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
