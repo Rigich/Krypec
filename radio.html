@@ -99,17 +99,80 @@
             font-size: 16px;
         }
     }
+            /* Стилі для прелоадера */
+            #p_prldr {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #b8132a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contpre {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden; /* Відсікання частини зображення, що виходить за межі круга */
+        }
+
+        .contpre img {
+            width: 100%;
+            height: auto;
+            animation: rotate 2s linear infinite; /* Анімація обертання */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .svg_anm {
+            width: 171px;
+            height: 50px;
+            background: url(../img/content/oval.svg) center center no-repeat;
+        }
+        
+        /* CSS для анімації крапок */
+        .loading-dots::after {
+            content: ".";
+            animation: loading 1s infinite;
+            color: white; /* Зміна кольору на білий */
+        }
+
+        @keyframes loading {
+            0% { content: "." }
+            20% { content: ".." }
+            40% { content: "..." }
+            60% { content: "...." }
+            80% { content: "....." }
+            100% { content: "." }
+        }
+
 </style>
 <body>
     <header>
         <h1>Ласкаво просимо до радіо "Крупець FM"</h1>
     </header>
+    <div id="p_prldr">
+        <div class="contpre">
+            <img src="" alt="Loading...">
+        </div>
+    </div>
     <nav>
         <a href="videomista.html">Відео огляд міста</a>
         <a href="index.html">Головна сторінка</a>
         <a href="https://rigich.github.io/KrypecCafe/index.html">Наше кафе</a>
         <a href="ferms.html">Наші ферми кур</a>
-        <a href="proverka.html">Контакти</a>
+        <a href="contact.html">Контакти</a>
 
     </nav>
     <h1>Радіо "Крупец FM"</h1>
@@ -138,5 +201,18 @@
         <source src="pilya5.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+    <script>
+        window.addEventListener("load", function() {
+            var preloader = document.getElementById("p_prldr");
+            var images = ['marta.jpg', 'mal.png', 'fadeev.png', 'sylim.jpg']; // масив імен файлів
+            var randomIndex = Math.floor(Math.random() * images.length); // вибираємо випадковий індекс
+            var randomImage = images[randomIndex]; // отримуємо випадкове ім'я файла
+            var imgTag = document.querySelector('.contpre img');
+            imgTag.src = randomImage; // встановлюємо випадкове зображення як src
+            setTimeout(function() {
+                preloader.style.visibility = "hidden";
+            }, 2000); // Затримка у 2 секунди
+        });
+    </script>
 </body>
 </html>

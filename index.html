@@ -12,20 +12,49 @@
             background-color: #f0f0f0;
             color: #333;
         }
+
         header {
             background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
+
         nav {
             background-color: #999;
             padding: 10px;
             text-align: center;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Додав варіант переносу кнопок на новий рядок, якщо не вистачає місця */
+            flex-wrap: wrap;
+            position: relative;
         }
+
+        .menu-toggle {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .bar:first-child {
+            margin-top: 0;
+        }
+
+        nav.open {
+            display: block;
+        }
+
         nav a {
             color: #fff;
             text-decoration: none;
@@ -35,13 +64,16 @@
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
+
         nav a:hover {
             background-color: #555;
         }
+
         section {
             padding: 20px;
             text-align: center;
         }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -51,42 +83,10 @@
             bottom: 0;
             width: 100%;
         }
-        .mayor {
-            font-style: italic;
-            color: #007bff;
-        }
-        button {
-            border: 2px solid #007bff;
-            background-color: #007bff;
-            color: #fff;
-            padding: 15px 40px;
-            font-size: 18px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-            display: block;
-            margin: 20px auto 10px; /* Знизив вертикальний відступ */
-            width: 80%;
-            max-width: 300px;
-        }
-        button:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-        #mayor-info {
-            text-align: center;
-            margin-top: 20px;
-        }
-        #mayor-info img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
 
         /* Стилі для модального вікна */
         .modal {
-            display: none; /* Початково ховаємо модальне вікно */
+            display: none;
             position: fixed;
             z-index: 1;
             left: 0;
@@ -94,7 +94,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.5); /* Півпрозорий чорний фон */
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
@@ -129,7 +129,108 @@
             margin: 20px auto;
             max-width: 800px;
             border-radius: 10px;
+            position: relative; /* Додано для позиціонування овалів */
         }
+
+        /* Стилі для кнопок */
+        button {
+            border: 2px solid #007bff;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            display: block;
+            margin: 20px auto 10px;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Стилі для міського голови */
+        #mayor-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #mayor-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Адаптивність */
+        @media screen and (max-width: 600px) {
+            nav a {
+                font-size: 16px;
+            }
+        }
+
+        /* Стилі для прелоадера */
+        #p_prldr {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #b8132a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contpre {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden; /* Відсікання частини зображення, що виходить за межі круга */
+        }
+
+        .contpre img {
+            width: 100%;
+            height: auto;
+            animation: rotate 2s linear infinite; /* Анімація обертання */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .svg_anm {
+            width: 171px;
+            height: 50px;
+            background: url(../img/content/oval.svg) center center no-repeat;
+        }
+        
+        /* CSS для анімації крапок */
+        .loading-dots::after {
+            content: ".";
+            animation: loading 1s infinite;
+            color: white; /* Зміна кольору на білий */
+        }
+
+        @keyframes loading {
+            0% { content: "." }
+            20% { content: ".." }
+            40% { content: "..." }
+            60% { content: "...." }
+            80% { content: "....." }
+            100% { content: "." }
+        }
+
     </style>
 </head>
 <body>
@@ -138,7 +239,19 @@
     <h1>Ласкаво просимо до міста Крупець</h1>
 </header>
 
-<nav>
+<div id="p_prldr">
+    <div class="contpre">
+        <img src="" alt="Loading...">
+    </div>
+</div>
+
+<div class="menu-toggle" id="menuToggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
+<nav id="navMenu">
     <a href="videomista.html">Відео огляд міста</a>
     <a href="radio.html">Радіо</a>
     <a href="https://rigich.github.io/KrypecCafe/index.html">Наше кафе</a>
@@ -149,37 +262,27 @@
 <section>
     <h1>Новини цього місяця:</h1>
     <div class="article-frame">
-        <img src="kyri.jpg" alt="Дороги в місті Крупець">
-        <p>Мер міста Крупець зробив свою футбольну команду</p>
-        <!-- Додайте кнопку для відкриття модального вікна -->
+        <img src="kyri.jpg" alt="Новина">
+        <p>Футбольня команда мера Крупця "Кури Крупця" пройшла в фінал ліги чемпіонів</p>
         <button id="openModalOkno">НАЖМІТЬ ЩОБ ПРОЧИТАТИ</button>
     </div>
-    <!-- Додали рамку для статті -->
-    <div class="article-frame">
-        <img src="dorogi.jpg" alt="Дороги в місті Крупець">
-        <p>Мер міста Крупець захотів зробити дороги на вїзд в місто</p>
-        <!-- Додайте кнопку для відкриття модального вікна -->
-        <button id="openModal">НАЖМІТЬ ЩОБ ПРОЧИТАТИ</button>
-    </div>
+
 </section>
 
 <button onclick="window.location.href='infotrivoga.html'">Що робити підчас тривоги?</button>
 <button onclick="window.location.href='robota.html'">Найти роботу</button>
-
 
 <div id="mayor-info">
     <img src="pilya.png" alt="Міський голова Крупця Дем'ян Пилипака">
     <p>Міський голова Крупця<br>Дем'ян Пилипака</p>
 </div>
 
-
-<!-- Модальне вікно -->
 <div id="myModalOkno" class="modal">
     <div class="modal-content">
         <span class="close" id="closeBtnOkno">&times;</span>
         <img src="kyri.jpg" alt="Дороги які робить Пилипака">
         <p>
-            Мер міста Крупець, Дем'ян Пилипака, взяв ініціативу до створення власної футбольної команди під назвою "Кури Крупця". Цей крок відображає його пристрасть до спорту та бажання залучити мешканців до активного та здорового способу життя.</p>
+            "Футбольна сенсація: "Кури Крупця" здивували світ, пройшовши в фінал Ліги Чемпіонів. Ця команда, яка раніше вважалася аутсайдером, зачарувала фанатів своєю захопливою грою та непередбачуваними перемогами. Їхня неймовірна подорож до вершини футбольного світу стала справжньою історією успіху та вольових досягнень."</p>
     </div>
 </div>
 
@@ -188,41 +291,30 @@
         <span class="close" id="closeBtn">&times;</span>
         <img src="dorogi.jpg" alt="Дороги які робить Пилипака">
         <p>Мер міста Крупець, Дем'ян Пилипака, оголосив про великий план з реконструкції доріг, що ведуть до міста. Цей амбіційний проект передбачає покращення і розширення дорожньої інфраструктури, щоб забезпечити безпечний та зручний в'їзд для мешканців та гостей міста.
-            Будівництво нових доріг стане важливим кроком у розвитку міста, сприяючи економічному зростанню та покращенню якості життя мешканців. Планується також створення нових зелених зон та пішохідних доріжок поруч із дорогами, щоб зробити місто більш привабливим для пішоходів та велосипедистів.      
+            Будівництво нових доріг стане важливим кроком у розвитку міста, сприяючи економічному зростанню та покращенню якості життя мешканців. Планується також створення нових зелених зон та пішохідних доріжок поруч із дорогами, щоб зробити місто більш привабливим для пішоходів та велосипедистів.
             Запрошуємо всіх мешканців та гостей міста долучитися до цього захоплюючого проекту та спільно працювати над створенням кращого майбутнього для нашого прекрасного міста Крупець!</p>
     </div>
 </div>
 
 <script>
-    // Отримання елементів модальних вікон та кнопок закриття
-    var modal = document.getElementById("myModal");
+    var menuToggle = document.getElementById("menuToggle");
+    var navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", function() {
+        navMenu.classList.toggle("open");
+    });
+
     var modalOkno = document.getElementById("myModalOkno");
-    var closeBtn = document.getElementById("closeBtn");
     var closeBtnOkno = document.getElementById("closeBtnOkno");
-    var openModalBtn = document.getElementById("openModal");
     var openModalOknoBtn = document.getElementById("openModalOkno");
 
-    // Відкриття модального вікна при натисканні на кнопку "openModalOkno"
     openModalOknoBtn.onclick = function() {
         modalOkno.style.display = "block";
     }
 
-    // Закриття модального вікна при натисканні на кнопку закриття "closeBtnOkno"
     closeBtnOkno.onclick = function() {
         modalOkno.style.display = "none";
     }
-
-    // Відкриття модального вікна при натисканні на кнопку "openModal"
-    openModalBtn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // Закриття модального вікна при натисканні на кнопку закриття "closeBtn"
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // Закриття модального вікна при натисканні на півпрозорий чорний фон
     window.onclick = function(event) {
         if (event.target == modalOkno) {
             modalOkno.style.display = "none";
@@ -230,7 +322,20 @@
             modal.style.display = "none";
         }
     }
+
+    window.addEventListener("load", function() {
+        var preloader = document.getElementById("p_prldr");
+        var images = ['marta.jpg', 'mal.png', 'fadeev.png', 'sylim.jpg']; // масив імен файлів
+        var randomIndex = Math.floor(Math.random() * images.length); // вибираємо випадковий індекс
+        var randomImage = images[randomIndex]; // отримуємо випадкове ім'я файла
+        var imgTag = document.querySelector('.contpre img');
+        imgTag.src = randomImage; // встановлюємо випадкове зображення як src
+        setTimeout(function() {
+            preloader.style.visibility = "hidden";
+        }, 2000); // Затримка у 2 секунди
+    });
 </script>
+
 
 </body>
 </html>

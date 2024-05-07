@@ -97,6 +97,63 @@
                 font-size: 16px;
             }
         }
+                /* Стилі для прелоадера */
+                #p_prldr {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #b8132a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contpre {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden; /* Відсікання частини зображення, що виходить за межі круга */
+        }
+
+        .contpre img {
+            width: 100%;
+            height: auto;
+            animation: rotate 2s linear infinite; /* Анімація обертання */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .svg_anm {
+            width: 171px;
+            height: 50px;
+            background: url(../img/content/oval.svg) center center no-repeat;
+        }
+        
+        /* CSS для анімації крапок */
+        .loading-dots::after {
+            content: ".";
+            animation: loading 1s infinite;
+            color: white; /* Зміна кольору на білий */
+        }
+
+        @keyframes loading {
+            0% { content: "." }
+            20% { content: ".." }
+            40% { content: "..." }
+            60% { content: "...." }
+            80% { content: "....." }
+            100% { content: "." }
+        }
     </style>
 </head>
 <body>
@@ -121,6 +178,18 @@
 <footer>
     <p>З любовью до <span class="mayor">Пилипаки</span></p>
 </footer>
-
+<script>
+    window.addEventListener("load", function() {
+        var preloader = document.getElementById("p_prldr");
+        var images = ['marta.jpg', 'mal.png', 'fadeev.png', 'sylim.jpg']; // масив імен файлів
+        var randomIndex = Math.floor(Math.random() * images.length); // вибираємо випадковий індекс
+        var randomImage = images[randomIndex]; // отримуємо випадкове ім'я файла
+        var imgTag = document.querySelector('.contpre img');
+        imgTag.src = randomImage; // встановлюємо випадкове зображення як src
+        setTimeout(function() {
+            preloader.style.visibility = "hidden";
+        }, 2000); // Затримка у 2 секунди
+    });
+</script>
 </body>
 </html>
